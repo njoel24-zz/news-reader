@@ -1,0 +1,41 @@
+<div *ngIf="!providerContent">
+  <ul>
+    <li>
+      <h2 style="cursor:pointer"><a (click)="getNewsFromProvider('hackerNews')">Hacker News</a></h2>
+    </li>
+    <li>
+      <h2 style="cursor:pointer"><a (click)="getNewsFromProvider('newsApi')">News Api</a></h2>
+    </li>
+  </ul>
+</div>
+<div *ngIf="providerContent">
+  <a (click)="resetProvider()" style="cursor:pointer">Back</a>
+  <span style="font-weight: bold">{{selectedProvider.name}}</span>
+  <div *ngIf="selectedProvider.name == 'newsApi'">  
+    <ul>
+      <li *ngFor=" let item of providerContent.articles;">
+          <div>
+            <span style="font-weight: bold">{{item.author}}</span> - 
+            <span>{{item.publishedAt}}</span> - 
+            <span>{{item.title}}</span> - 
+            <span style="cursor:pointer"><a href="{{item.url}}" target="_blank">Link</a></span>
+          </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedProvider.name == 'hackerNews'">
+    <ul>
+      <li *ngFor=" let item of providerContent;">
+          <div>
+            <div>
+            <span style="font-weight: bold">{{item.by}}</span> - 
+            <span>{{item.title}}</span> - 
+            <span style="cursor:pointer"><a href="{{item.url}}" target="_blank">Link</a></span>
+          </div>
+          </div>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+
