@@ -1,17 +1,25 @@
 import { consts } from '../app.consts';
 import { AbstractProvider } from './abstractProvider';
+import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class HackerNewsService extends AbstractProvider {
     private results: Array<any>;
 
-    constructor() {
-        super();
+    constructor(cacheService: CacheService) {
+        super(cacheService);
     }
 
     getLastNews() {
         this.results = [];
         const resultText = this.getNews(consts.hackerNews.endpoint);
+        const data: any|null = this.cacheService.get("hackerNewsProcessedData");
+        if(data) {
+            return data;
+        }
         this.processResult(resultText);
+        this.cacheService.set("hackerNewsProcessedData", this.results, {expires: consts.expriringDate});
         return this.results;
     }
     processResult(result: any) {
