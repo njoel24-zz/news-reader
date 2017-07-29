@@ -1,6 +1,7 @@
 # Newsreader
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+Live Demo: http://looptube.net/newsreader
 
 ## Development server
 
