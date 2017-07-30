@@ -1,19 +1,16 @@
 <div *ngIf="!providerContent">
-  <ul>
+  <ul style="  list-style-type: none;">
+    <li *ngFor=" let item of providerList;" style="">
+      <h4 style="cursor:pointer"><a (click)="getNewsFromProvider(item)">{{item.name}}</a></h4>
     <li>
-      <h2 style="cursor:pointer"><a (click)="getNewsFromProvider('hackerNews')">Hacker News</a></h2>
-    </li>
-    <li>
-      <h2 style="cursor:pointer"><a (click)="getNewsFromProvider('newsApi')">News Api</a></h2>
-    </li>
   </ul>
 </div>
 <div *ngIf="providerContent">
   <a (click)="resetProvider()" style="cursor:pointer">Back</a>
-  <span style="font-weight: bold">{{selectedProvider.name}}</span>
-  <div *ngIf="selectedProvider.name == 'newsApi'">  
+  <span style="font-weight: bold">{{providerName}}</span>
+  <div *ngIf="providerName != 'hackerNews'">  
     <ul>
-      <li *ngFor=" let item of providerContent.articles;">
+      <li *ngFor="let item of providerContent.articles;">
           <div>
             <span style="font-weight: bold">{{item.author}}</span> - 
             <span>{{item.publishedAt}}</span> - 
@@ -23,7 +20,7 @@
       </li>
     </ul>
   </div>
-  <div *ngIf="selectedProvider.name == 'hackerNews'">
+  <div *ngIf="providerName == 'hackerNews'">
     <ul>
       <li *ngFor=" let item of providerContent;">
           <div>
@@ -36,6 +33,5 @@
       </li>
     </ul>
   </div>
-  
 </div>
 

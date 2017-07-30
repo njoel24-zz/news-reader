@@ -5,6 +5,15 @@ import { Inject } from '@angular/core';
 export abstract class AbstractProvider {
     constructor(protected cacheService) {
     }
+    
+    getLastNews(endpoint: string) {
+        const resultTxt = this.getNews(endpoint);
+        return this.processResult(resultTxt);
+    }
+    processResult(result: any) {
+      return  result;
+    }
+
     getNews (provider): any {
         const data: any|null = this.cacheService.get(provider);
         if(data) {

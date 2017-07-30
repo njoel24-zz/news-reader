@@ -11,9 +11,9 @@ export class HackerNewsService extends AbstractProvider {
         super(cacheService);
     }
 
-    getLastNews() {
+    getLastNews(endpoint:string) {
         this.results = [];
-        const resultText = this.getNews(consts.hackerNews.endpoint);
+        const resultText = this.getNews(endpoint);
         const data: any|null = this.cacheService.get("hackerNewsProcessedData");
         if(data) {
             return data;

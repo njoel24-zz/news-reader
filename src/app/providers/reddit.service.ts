@@ -4,9 +4,10 @@ import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class NewsApiService extends AbstractProvider {
+export class RedditService extends AbstractProvider {
 
     constructor(protected cacheService: CacheService) {
         super(cacheService);   
     }
+
 }
