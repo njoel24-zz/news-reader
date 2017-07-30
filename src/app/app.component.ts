@@ -33,22 +33,22 @@ export class AppComponent {
         case "newsApi":
           this.providerContent = this.newsApiService.getLastNews(provider.endpoint);
         break;
-        case "havkerNews":
+        case "hackerNews":
           this.providerContent = this.hackerNewsService.getLastNews(provider.endpoint);
         break;
-        case "bbc-news":
+        case "bbcNews":
           this.providerContent = this.bbcNewsService.getLastNews(provider.endpoint);
         break;
-        case "cnn-news":
+        case "cnnNews":
           this.providerContent = this.cnnNewsService.getLastNews(provider.endpoint);
         break;
-        case "google-news":
+        case "googleNews":
           this.providerContent = this.googleNewsService.getLastNews(provider.endpoint);
         break;
-        case "reddit":
+        case "redditNews":
           this.providerContent = this.redditService.getLastNews(provider.endpoint);
         break;
-        case "national-geographic":
+        case "nationalGeographic":
           this.providerContent = this.nationalGeographicService.getLastNews(provider.endpoint);
         break;
     }
